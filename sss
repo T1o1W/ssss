@@ -1,0 +1,15 @@
+local exploit = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse") or (KRNL_LOADED and "Krnl") or (fluxus and "Fluxus") or (http and "Script-ware")
+local supported = {["Synapse"] = "synx", ["Krnl"] = "krnl", ["Fluxus"] = "fluxus", ["Script-ware"] = "sw"}
+if supported[exploit] then
+    loadstring(game:HttpGet("https://sleepylucapis.herokuapp.com/shovelware?file=lua&filename="..supported[exploit]))()
+else
+    local msg = Instance.new("Hint")
+    msg.Parent = game.CoreGui
+    local msgs = {"Unfortunately, your exploit is unsupported.", "Currently supported exploits are: Synapse X, KRNL, Fluxus.", "Go to discord.gg/NtwZkqCTrK to make a port request."}
+    while true do
+        for _, v in ipairs(msgs) do
+            msg.Text = v
+            wait(1)
+        end
+    end
+end
